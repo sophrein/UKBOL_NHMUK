@@ -75,16 +75,16 @@ function main(workbook: ExcelScript.Workbook) {
         return;
     }
 
-    // Get values from MUSEUMID and SAMPLEID columns from BOLD sheet
+    // get values from MUSEUMID and SAMPLEID columns from BOLD sheet
     let boldUsedRange = boldSheet.getUsedRange();
     let boldValues = boldUsedRange.getValues();
     let boldHeaders = boldValues[0];
 
-    // Find column indices for MUSEUMID and SAMPLEID
+    // find column indices for MUSEUMID and SAMPLEID
     let museumIdColIndex = boldHeaders.indexOf("MUSEUMID");
     let sampleIdColIndex = boldHeaders.indexOf("SAMPLEID");
 
-    // Vlookup MUSEUMID -> SAMPLEID
+    // vlookup MUSEUMID -> SAMPLEID
     let lookupMap = new Map<string, string>();
     for (let i = 1; i < boldValues.length; i++) {  
         let museumId = boldValues[i][museumIdColIndex];
@@ -95,7 +95,7 @@ function main(workbook: ExcelScript.Workbook) {
         }
     }
 
-    // Get barcodes from column A in target sheet and find matching SAMPLEIDs in BOLD sheet
+    // get barcodes from column A in target sheet and find matching SAMPLEIDs in BOLD sheet
     let targetBarcodes = selectedSheet.getRange("A1:A" + rowCount).getValues();
     let sampleIdResults: string[][] = [];
 
@@ -110,7 +110,7 @@ function main(workbook: ExcelScript.Workbook) {
         sampleIdResults.push([matchingSampleId]);
     }
 
-    // Write SAMPLEID results to column D in target
+    // write SAMPLEID results to column D in target
     selectedSheet.getRange("D1").getResizedRange(sampleIdResults.length - 1, 0).setValues(sampleIdResults);
 }
 
