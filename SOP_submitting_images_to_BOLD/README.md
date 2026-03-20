@@ -1,4 +1,4 @@
-# Populating a Image Metadata file for BOLD Systems v.5 upload
+# Populating the Image Metadata template for BOLD Systems v.5 upload
 
 Script that can be applied in Excel MS Office Script.
 
