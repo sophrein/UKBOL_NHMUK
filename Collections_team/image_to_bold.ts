@@ -34,7 +34,7 @@ function main(workbook: ExcelScript.Workbook) {
     destinationRange = selectedSheet.getRange("A1");
 
     for (let row = 0; row < rowCount; row++) {
-        let sourceRangeValues = sourceRange.getRow(row).getValues()[0][0].toString().split('-');
+        let sourceRangeValues = sourceRange.getRow(row).getValues()[0][0].toString().split('_');
         destinationRange.getOffsetRange(row, 0).getResizedRange(0, sourceRangeValues.length - 1).setValues([sourceRangeValues]);
     }
 
