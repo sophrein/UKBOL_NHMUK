@@ -6,7 +6,7 @@ function main(workbook: ExcelScript.Workbook) {
 
   // assigning the two sheets to variable names
   let targetSheet = workbook.getWorksheet("target");
-  let boldDownloadSheet = workbook.getWorksheet("BOLD_DOWNLOAD_25.11.25");
+  let boldDownloadSheet = workbook.getWorksheet("BOLD_DOWNLOAD");
 
   // define the columns in both sheets int variables
   let targetIdColumn = 0;
